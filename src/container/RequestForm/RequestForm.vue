@@ -6,6 +6,7 @@
 
 <script>
 import vFlex from '@/components/UI/VFlex/VFlex';
+import formData from '@/assets/input.json';
 
 export default {
   name: 'RequestForm',
@@ -14,8 +15,11 @@ export default {
   },
   data() {
     return {
-
+      formData,
     };
+  },
+  created() {
+    console.log(this.formData);
   },
 };
 </script>
