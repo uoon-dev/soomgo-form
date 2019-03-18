@@ -1,21 +1,37 @@
 <template>
   <div>
-    <v-flex>test</v-flex>
+    <v-flex>
+      <form>
+        <head-title> {{ formItems.title }} </head-title>
+        <div v-for="formItem in formItems" :key="formItem.id">
+          {{ formItem.title }}
+          <request-form-input v-if="formItem.formType === 1" :item="item" />
+          <request-form-checkbox v-if="formItem.formType === 2" />
+          <request-form-select v-if="formItem.formType === 3" />
+        </div>
+      </form>
+    </v-flex>
   </div>
 </template>
 
 <script>
-import vFlex from '@/components/UI/VFlex/VFlex';
-import formData from '@/assets/input.json';
+import headTitle from '@/components/HeadTitle/HeadTitle';
+import formItems from '@/assets/input.json';
+import requestFormInput from './RequestFormInput/RequestFormInput';
+import requestFormCheckbox from './RequestFormCheckbox/RequestFormCheckbox';
+import requestFormSelect from './RequestFormSelect/RequestFormSelect';
 
 export default {
   name: 'RequestForm',
   components: {
-    vFlex,
+    headTitle,
+    requestFormInput,
+    requestFormCheckbox,
+    requestFormSelect,
   },
   data() {
     return {
-      formData,
+      formItems,
     };
   },
   created() {
