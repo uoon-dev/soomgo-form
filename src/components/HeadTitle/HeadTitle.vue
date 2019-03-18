@@ -8,12 +8,8 @@
 </template>
 
 <script>
-import typography from '@/components/UI/Typography/Typography';
 
 export default {
-  components: {
-    typography,
-  },
   props: {
     text: {
       type: String,
