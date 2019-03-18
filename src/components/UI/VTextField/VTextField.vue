@@ -9,6 +9,23 @@
 
 <script>
 export default {
-
+  props: {
+    value: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: 'text',
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    inputChanged: {
+      type: Function,
+      default: () => {},
+    },
+  },
 };
 </script>
