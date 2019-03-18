@@ -1,8 +1,7 @@
 <template>
   <div>
-    <typography sg="sg-heading-3">
+    <typography xs="sg-heading-3" sm="sg-heading-2">
       <slot>{{ text }}</slot>
-      <typography />
     </typography>
   </div>
 </template>

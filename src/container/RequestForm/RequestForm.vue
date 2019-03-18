@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import formItems from '@/assets/data/input.json';
+
 import headTitle from '@/components/HeadTitle/HeadTitle';
-import formItems from '@/assets/input.json';
+
 import requestFormInput from './RequestFormInput/RequestFormInput';
 import requestFormCheckbox from './RequestFormCheckbox/RequestFormCheckbox';
 import requestFormSelect from './RequestFormSelect/RequestFormSelect';

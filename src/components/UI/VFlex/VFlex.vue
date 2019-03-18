@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'VFlex',
   props: {
     text: {
       type: String,
