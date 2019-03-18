@@ -12,9 +12,6 @@ export default {
   components: {
     requestForm,
   },
-  created() {
-    console.log(this.$breakpoint);
-  },
 };
 </script>
 

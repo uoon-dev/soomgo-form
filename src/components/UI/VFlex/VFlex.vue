@@ -15,6 +15,16 @@ export default {
   },
   computed: {
     justifyClass() {
+      const attrs = {};
+
+      for (const key in this.$attrs) {
+        if ({}.hasOwnProperty.call(this.$attrs, key)) {
+          attrs[key.replace(/-([a-z])/g, (g) => {
+            return g[1].toUpperCase();
+          })] = true;
+        }
+      }
+
       const {
         justifyStart,
         justifyEnd,
@@ -22,7 +32,7 @@ export default {
         justifySpaceAround,
         justifySpaceBetween,
         justifyBaseline,
-      } = this;
+      } = attrs;
 
       if (justifyStart) return 'justify-start';
       if (justifyEnd) return 'justify-end';

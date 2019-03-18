@@ -1,14 +1,19 @@
 <template>
-  <div>
-    <v-flex>
-      <form>
+  <div class="request-form-container">
+    <v-flex justify-center>
+      <form class="request-form-wrapper">
         <head-title> {{ formItems.title }} </head-title>
-        <div v-for="formItem in formItems" :key="formItem.id">
-          {{ formItem.title }}
-          <request-form-input v-if="formItem.formType === 1" :item="item" />
-          <request-form-checkbox v-if="formItem.formType === 2" />
-          <request-form-select v-if="formItem.formType === 3" />
-        </div>
+        <v-flex
+          v-for="item in formItems.items"
+          :key="item.id"
+          justify-center
+        >
+          {{ item.title }}
+          <request-form-checkbox v-if="item.formType === 1" :item="item" />
+          <request-form-checkbox v-if="item.formType === 2" :item="item" />
+          <request-form-input v-if="item.formType === 3" :item="item" />
+          <request-form-select v-if="item.formType === 4" :item="item" />
+        </v-flex>
       </form>
     </v-flex>
   </div>
@@ -35,9 +40,6 @@ export default {
     return {
       formItems,
     };
-  },
-  created() {
-    console.log(this.formData);
   },
 };
 </script>
