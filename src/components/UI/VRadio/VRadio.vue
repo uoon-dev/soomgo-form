@@ -2,8 +2,9 @@
   <label class="container">
     {{ label }}
     <input
-      :value="value"
-      type="checkbox"
+      v-model="value"
+      :type="type"
+      checked="checked"
       @input="inputChanged"
     >
     <span class="checkmark" />
@@ -14,12 +15,20 @@
 export default {
   props: {
     value: {
-      type: Boolean,
-      default: false,
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: 'checkbox',
     },
     label: {
       type: String,
       default: 'text',
+    },
+    placeholder: {
+      type: String,
+      default: '',
     },
     inputChanged: {
       type: Function,
@@ -37,7 +46,7 @@ export default {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -58,8 +67,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  height: 19px;
-  width: 19px;
+  height: 25px;
+  width: 25px;
   background-color: #eee;
 }
 
@@ -87,9 +96,9 @@ export default {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 6px;
-  top: 2px;
-  width: 3px;
+  left: 9px;
+  top: 5px;
+  width: 5px;
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;

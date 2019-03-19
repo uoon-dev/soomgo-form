@@ -1,0 +1,7 @@
+@for $i from 1 through 5 {
+  .pa-#{$i} { padding: 2em * $i; }
+  .pt-#{$i} { padding-top: 2em * $i; }
+  .pb-#{$i} { padding-bottom: 2em * $i; }
+  .pl-#{$i} { padding-left: 2em * $i; }
+  .pr-#{$i} { padding-right: 2em * $i; }
+}

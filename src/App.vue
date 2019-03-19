@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <request-form />
+    <banner />
+    <request-form class="mt-pull-100" />
   </div>
 </template>
 
 <script>
+import banner from '@/components/Banner/Banner';
 import requestForm from '@/container/RequestForm/RequestForm';
 
 export default {
   name: 'App',
   components: {
+    banner,
     requestForm,
   },
 };
 </script>
 
 <style lang="scss">
+html, body {
+  all: unset;
+  height: 100%;
+  background-color: rgb(240, 235, 248);
+}
+
+.mt-pull-100{
+  margin-top: -100px;
+}
 </style>

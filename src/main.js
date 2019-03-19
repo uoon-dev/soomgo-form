@@ -3,6 +3,9 @@ import App from './App.vue';
 import store from './store';
 import uiUtils from './ui-utils';
 
+import './assets/scss/margin.scss';
+import './assets/scss/padding.scss';
+
 Vue.config.productionTip = false;
 
 for (let key in uiUtils) {
