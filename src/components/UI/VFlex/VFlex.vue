@@ -1,5 +1,5 @@
 <template>
-  <div :class="[justifyClass, alignClass, 'flex']">
+  <div :class="[justifyClass, alignClass, directionClass,'flex']">
     <slot>{{ text }}</slot>
   </div>
 </template>
@@ -15,16 +15,6 @@ export default {
   },
   computed: {
     justifyClass() {
-      const attrs = {};
-
-      for (const key in this.$attrs) {
-        if ({}.hasOwnProperty.call(this.$attrs, key)) {
-          attrs[key.replace(/-([a-z])/g, (g) => {
-            return g[1].toUpperCase();
-          })] = true;
-        }
-      }
-
       const {
         justifyStart,
         justifyEnd,
@@ -32,7 +22,7 @@ export default {
         justifySpaceAround,
         justifySpaceBetween,
         justifyBaseline,
-      } = attrs;
+      } = this.convertToCamel(this.$attrs);
 
       if (justifyStart) return 'justify-start';
       if (justifyEnd) return 'justify-end';
@@ -48,13 +38,34 @@ export default {
         alignEnd,
         alignCenter,
         alignBaseline,
-      } = this;
+      } = this.convertToCamel(this.$attrs);
 
       if (alignStart) return 'align-start';
       if (alignEnd) return 'align-end';
       if (alignCenter) return 'align-center';
       if (alignBaseline) return 'align-baseline';
       return '';
+    },
+    directionClass() {
+      const {
+        column,
+      } = this.convertToCamel(this.$attrs);
+
+      if (column) return 'flex-direction-column';
+      else return 'flex-direction-row';
+    },
+  },
+  methods: {
+    convertToCamel(obj) {
+      const convertedObj = {};
+      for (const key in obj) {
+        if ({}.hasOwnProperty.call(obj, key)) {
+          convertedObj[key.replace(/-([a-z])/g, (g) => {
+            return g[1].toUpperCase();
+          })] = true;
+        }
+      }
+      return convertedObj;
     },
   },
 };
@@ -104,5 +115,13 @@ export default {
 
 .align-baseline {
   align-items: baseline;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex-direction-row {
+  flex-direction: row;
 }
 </style>
