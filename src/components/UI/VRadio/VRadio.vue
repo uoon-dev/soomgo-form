@@ -2,9 +2,9 @@
   <label class="container">
     {{ label }}
     <input
-      v-model="value"
-      :type="type"
-      checked="checked"
+      :value="value"
+      :checked="value === id"
+      type="radio"
       @input="inputChanged"
     >
     <span class="checkmark" />
@@ -13,22 +13,23 @@
 
 <script>
 export default {
+  name: 'VRadio',
   props: {
     value: {
       type: String,
-      default: '',
+      required: true,
     },
-    type: {
+    id: {
       type: String,
-      default: 'checkbox',
+      required: true,
+    },
+    selected: {
+      type: Boolean,
+      default: false,
     },
     label: {
       type: String,
       default: 'text',
-    },
-    placeholder: {
-      type: String,
-      default: '',
     },
     inputChanged: {
       type: Function,
@@ -39,21 +40,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* The container */
 .container {
   display: block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
+/* Hide the browser's default radio button */
 .container input {
   position: absolute;
   opacity: 0;
@@ -62,14 +62,15 @@ export default {
   width: 0;
 }
 
-/* Create a custom checkbox */
+/* Create a custom radio button */
 .checkmark {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 19px;
+  width: 19px;
   background-color: #eee;
+  border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -77,33 +78,30 @@ export default {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
+/* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
+/* Style the indicator (dot/circle) */
 .container .checkmark:after {
-  left: 9px;
+  left: 5px;
   top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 </style>

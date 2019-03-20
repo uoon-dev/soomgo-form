@@ -8,7 +8,7 @@ import './assets/scss/padding.scss';
 
 Vue.config.productionTip = false;
 
-for (let key in uiUtils) {
+for (const key in uiUtils) {
   Vue.component(key, uiUtils[key]);
 }
 

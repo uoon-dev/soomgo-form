@@ -30,9 +30,11 @@ export default {
     updateCheckboxValue(params) {
       const { e, option, i } = params;
       if (e.target.checked) {
+        this.selectedCheckbox = true;
         this.answer[i] = option.text;
         this.setAnswer({ id: this.item.itemId, text: this.answer.filter(value => value !== '').join(', ') });
       } else {
+        this.selectedCheckbox = false;
         this.answer[i] = '';
         this.setAnswer({ id: this.item.itemId, text: this.answer.filter(value => value !== '').join(', ') });
       }

@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'VCheckbox',
   props: {
     value: {
       type: Boolean,

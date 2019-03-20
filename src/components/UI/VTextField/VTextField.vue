@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'VTextField',
   props: {
     value: {
       type: String,

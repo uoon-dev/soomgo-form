@@ -16,10 +16,10 @@ describe('HelloWorld.vue', () => {
     wrapper.find('button').trigger('click');
     expect(wrapper.vm.counter).toBe(1);
   });
-  
+
   it('check increment method', () => {
     const wrapper = shallowMount(HelloWorld);
     wrapper.vm.increment();
     expect(wrapper.vm.counter).toBe(1);
-  })
+  });
 });

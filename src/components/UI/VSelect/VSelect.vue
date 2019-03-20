@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'VSelect',
   props: {
     value: {
       type: String,

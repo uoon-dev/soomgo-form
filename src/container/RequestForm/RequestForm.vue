@@ -1,21 +1,20 @@
 <template>
   <v-flex class="request-form-container" align-center column>
     <head-title> {{ formItems.title }} </head-title>
-    <v-flex justify-center>
+    <v-flex>
       <form class="request-form-wrapper">
         <v-flex
           v-for="(item, i) in formItems.items"
           v-show="i === tabCount"
           :key="item.id"
           :tab="i"
-          justify-start
           column
         >
           <typography xs="sg-heading-3-light" class="ma-1">
             Q. {{ item.title }}
           </typography>
           <request-form-checkbox v-if="item.formType === 1" :item="item" />
-          <!-- <request-form-radio v-if="item.formType === 2" :item="item" /> -->
+          <request-form-radio v-if="item.formType === 2" :item="item" />
           <request-form-input v-if="item.formType === 3" :item="item" />
           <request-form-select v-if="item.formType === 4" :item="item" />
         </v-flex>
@@ -50,6 +49,7 @@ import formItems from '@/assets/data/input.json';
 import headTitle from '@/components/HeadTitle/HeadTitle';
 
 import requestFormCheckbox from './RequestFormCheckbox/RequestFormCheckbox';
+import requestFormRadio from './RequestFormRadio/RequestFormRadio';
 import requestFormInput from './RequestFormInput/RequestFormInput';
 import requestFormSelect from './RequestFormSelect/RequestFormSelect';
 
@@ -57,8 +57,9 @@ export default {
   name: 'RequestForm',
   components: {
     headTitle,
-    requestFormInput,
     requestFormCheckbox,
+    requestFormRadio,
+    requestFormInput,
     requestFormSelect,
   },
   data() {
@@ -81,6 +82,8 @@ export default {
   margin-right: auto;
   margin-bottom: 60px;
   padding: 34px 0;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+  border-top: 7px solid rgb(174, 121, 255);
   background-color: white;
 }
 </style>
