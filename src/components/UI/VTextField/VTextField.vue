@@ -33,7 +33,6 @@ export default {
 
 <style lang="scss" scoped>
   input[type=text], select {
-    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;

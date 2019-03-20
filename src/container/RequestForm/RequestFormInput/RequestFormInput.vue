@@ -1,9 +1,10 @@
 <template>
-  <v-flex column>
+  <v-flex column align-center>
     <v-text-field
       :value="inputValue"
       :input-changed="(e) => updateCheckboxValue(e)"
       :placeholder="placeholder"
+      class="input-field"
     />
   </v-flex>
 </template>
@@ -34,3 +35,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.input-field {
+  width: 80%;
+}
+</style>
