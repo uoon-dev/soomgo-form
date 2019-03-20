@@ -51,7 +51,6 @@
 
 <script>
 import formItems from '@/assets/data/input.json';
-
 import headTitle from '@/components/HeadTitle/HeadTitle';
 
 import requestFormCheckbox from './RequestFormCheckbox/RequestFormCheckbox';
@@ -73,9 +72,6 @@ export default {
       formItems,
       tabCount: 0,
     };
-  },
-  created() {
-    console.log(this.formItems);
   },
 };
 </script>

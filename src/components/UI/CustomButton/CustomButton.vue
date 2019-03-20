@@ -42,6 +42,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    lightyellow: {
+      type: Boolean,
+      default: false,
+    },
     round: {
       type: Boolean,
       default: false,
@@ -73,11 +77,12 @@ export default {
     },
     buttonType() {
       const {
-        steelblue, ghost, ghostSb,
+        steelblue, ghost, ghostSb, lightyellow,
       } = this;
       if (steelblue) return 'steelblue';
       else if (ghost) return 'ghost';
       else if (ghostSb) return 'ghost-sb';
+      else if (lightyellow) return 'lightyellow';
       else return '';
     },
     buttonShape() {
@@ -159,6 +164,12 @@ export default {
   .ghost-sb {
     border-color: $steelblue;
     color: $steelblue !important;
+  }
+
+  .lightyellow {
+    background-color: $lightyellow;
+    border-color: $lightyellow;
+    color: white !important;
   }
 
   .square {

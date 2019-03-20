@@ -1,7 +1,11 @@
 import Vue from 'vue';
+import Vuex from 'vuex';
 import App from './App.vue';
-import store from './store';
+import store from './store/store';
 import uiUtils from './ui-utils';
+
+Vue.use(Vuex);
+
 
 import './assets/scss/margin.scss';
 import './assets/scss/padding.scss';

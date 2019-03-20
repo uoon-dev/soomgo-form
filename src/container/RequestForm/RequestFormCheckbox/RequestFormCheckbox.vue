@@ -39,10 +39,18 @@ export default {
         this.setAnswer({ id: this.item.itemId, text: this.answer.filter(value => value !== '').join(', ') });
       }
       console.log(this.$store.state);
+      this.addToFavorite();
     },
     ...mapActions({
       setAnswer: 'setAnswer',
+      showCheckModal: 'show',
     }),
+    addToFavorite() {
+      this.showCheckModal({
+        bodyText: 'YOU NEED TO LOGIN RETARD',
+        type: 'error',
+      });
+    },
   },
 };
 </script>
