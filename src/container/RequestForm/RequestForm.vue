@@ -21,24 +21,30 @@
       </form>
     </v-flex>
     <v-flex justify-center class="btn-stage-group">
-      <button
+      <custom-button
         v-show="tabCount > 0"
-        @click.prevent="tabCount = tabCount - 1"
+        class="mr-1"
+        width="80px"
+        :click="() => { tabCount = tabCount - 1 }"
       >
         이전
-      </button>
-      <button
+      </custom-button>
+      <custom-button
         v-show="tabCount < formItems.items.length - 1"
-        @click.prevent="tabCount = tabCount + 1"
+        steelblue
+        width="80px"
+        :click="() => { tabCount = tabCount + 1 }"
       >
         다음
-      </button>
-      <button
+      </custom-button>
+      <custom-button
         v-show="tabCount === formItems.items.length - 1"
-        @click.prevent=""
+        steelblue
+        width="80px"
+        :click="() => { }"
       >
         제출
-      </button>
+      </custom-button>
     </v-flex>
   </v-flex>
 </template>

@@ -3,6 +3,7 @@ import vTextField from './components/UI/VTextField/VTextField';
 import vSelect from './components/UI/VSelect/VSelect';
 import vCheckbox from './components/UI/VCheckbox/VCheckbox';
 import vRadio from './components/UI/VRadio/VRadio';
+import customButton from './components/UI/CustomButton/CustomButton';
 import typography from './components/UI/Typography/Typography';
 
 export default {
@@ -11,5 +12,6 @@ export default {
   'v-radio': vRadio,
   'v-select': vSelect,
   'v-text-field': vTextField,
+  'custom-button': customButton,
   typography,
 };
