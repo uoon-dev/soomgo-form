@@ -20,7 +20,7 @@
         </v-flex>
       </form>
     </v-flex>
-    <v-flex justify-center>
+    <v-flex justify-center class="btn-stage-group">
       <button
         v-show="tabCount > 0"
         @click.prevent="tabCount = tabCount - 1"
@@ -76,6 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .request-form-container {
+  position: relative;
   width: 540px;
   min-height: 560px;
   margin-left: auto;
@@ -85,5 +86,10 @@ export default {
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
   border-top: 7px solid rgb(174, 121, 255);
   background-color: white;
+
+  .btn-stage-group {
+    position: absolute;
+    bottom: 100px;
+  }
 }
 </style>
