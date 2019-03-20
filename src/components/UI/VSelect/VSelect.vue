@@ -1,6 +1,6 @@
 <template>
   <select
-    v-model="value"
+    :value="value"
     @change="selectChanged"
   >
     <option v-for="option in options" :key="option.id" :value="option.text">
