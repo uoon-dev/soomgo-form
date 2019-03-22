@@ -83,7 +83,7 @@ export default {
   min-height: 560px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   padding: 34px 0;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
   border-top: 7px solid rgb(174, 121, 255);
