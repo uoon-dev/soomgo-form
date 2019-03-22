@@ -16,13 +16,13 @@ const mutations = {
   },
 };
 
-const state = () => ({
+const state = {
   show: false,
   headline: '',
   bodyText: '',
   buttonText: '',
   type: '',
-});
+};
 
 const actions = {
   show({ commit }, {
@@ -42,8 +42,15 @@ const actions = {
   },
 };
 
+const getters = { 
+  showCheckModal(state) {
+    return state.show;
+  }
+}
+
 export default {
   state,
   mutations,
   actions,
+  getters,
 };

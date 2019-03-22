@@ -3,7 +3,7 @@
     <banner />
     <request-form class="mt-pull-100" />
     <the-check-modal />
-    <!-- <backdrop /> -->
+    <backdrop />
   </div>
 </template>
 
