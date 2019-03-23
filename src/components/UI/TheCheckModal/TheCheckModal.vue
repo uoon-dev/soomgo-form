@@ -3,7 +3,7 @@
     <typography xs="sg-heading-3">
       {{ headline }}
     </typography>
-    <typography xs="sg-heading-4">
+    <typography xs="sg-heading-4" class="body-text">
       {{ bodyText }}
     </typography>
     <custom-button
@@ -65,10 +65,15 @@ export default {
   top: 50%;
   left: 50%;
   width: 350px;
-  height: 300px;
+  height: 200px;
   background: white;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
   transform: translate(-50%, -50%);
   z-index: 2;
+
+  .body-text {
+    white-space: unset;
+    padding: 30px;
+  }
 }
 </style>

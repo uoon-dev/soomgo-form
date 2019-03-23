@@ -31,9 +31,11 @@ export default {
     updateRadioValue(option) {
       this.selectedRadio = option.id.toString();
       this.setAnswer({ id: this.item.itemId, text: option.text });
+      this.setValidation({ isValid: true });
     },
     ...mapActions({
       setAnswer: 'setAnswer',
+      setValidation: 'setValidation',
     }),
   },
 };

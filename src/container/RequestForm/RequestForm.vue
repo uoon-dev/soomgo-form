@@ -17,39 +17,41 @@
           <request-form-radio v-if="item.formType === 2" :item="item" />
           <request-form-input v-if="item.formType === 3" :item="item" />
           <request-form-select v-if="item.formType === 4" :item="item" />
+          <v-flex justify-center class="btn-stage-group">
+            <custom-button
+              v-show="tabCount > 0"
+              class="mr-1"
+              width="80px"
+              :click="(e) => goPrevStage({e, itemId: item.itemId, formType: item.formType})"
+            >
+              이전
+            </custom-button>
+            <custom-button
+              v-show="tabCount < formItems.items.length - 1"
+              steelblue
+              width="80px"
+              :click="(e) => goNextStage({e, itemId: item.itemId, formType: item.formType})"
+            >
+              다음
+            </custom-button>
+            <custom-button
+              v-show="tabCount === formItems.items.length - 1"
+              steelblue
+              width="80px"
+              :click="(e) => submitRequestForm(e)"
+            >
+              제출
+            </custom-button>
+          </v-flex>
         </v-flex>
       </form>
-    </v-flex>
-    <v-flex justify-center class="btn-stage-group">
-      <custom-button
-        v-show="tabCount > 0"
-        class="mr-1"
-        width="80px"
-        :click="() => { tabCount = tabCount - 1 }"
-      >
-        이전
-      </custom-button>
-      <custom-button
-        v-show="tabCount < formItems.items.length - 1"
-        steelblue
-        width="80px"
-        :click="() => { tabCount = tabCount + 1 }"
-      >
-        다음
-      </custom-button>
-      <custom-button
-        v-show="tabCount === formItems.items.length - 1"
-        steelblue
-        width="80px"
-        :click="() => { }"
-      >
-        제출
-      </custom-button>
     </v-flex>
   </v-flex>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 import formItems from '@/assets/data/input.json';
 import headTitle from '@/components/HeadTitle/HeadTitle';
 
@@ -71,7 +73,66 @@ export default {
     return {
       formItems,
       tabCount: 0,
+      type: 0,
     };
+  },
+  computed: {
+    ...mapState({
+      answer(state) {
+        return state.requestForm.answer;
+      },
+      msg(state) {
+        return state.validation.msg;
+      },
+    }),
+    ...mapGetters({
+      isValid: 'isValid',
+    }),
+  },
+  created() {
+  },
+  methods: {
+    goPrevStage({ e, itemId, formType }) {
+      e.preventDefault();
+      this.tabCount = this.tabCount - 1;
+    },
+    goNextStage({ e, itemId, formType }) {
+      e.preventDefault();
+      this.checkValidation(itemId, formType);
+      if (!this.isValid) {
+        this.showCheckModal({
+          bodyText: this.msg,
+          type: 'error',
+        });
+      } else {
+        this.tabCount = this.tabCount + 1;
+      }
+    },
+    checkValidation(itemId, formType) {
+      if (!this.answer[itemId]) {
+        switch (formType) {
+          case 1:
+            this.setValidation({ isValid: false, msg: '한 개 이상 골라주세요' });
+            break;
+          case 2:
+            this.setValidation({ isValid: false, msg: '한 개 골라주세요' });
+            break;
+          case 3:
+            this.setValidation({ isValid: false, msg: '입력 값이 필요합니다' });
+            break;
+          default: break;
+        }
+      } else {
+        this.setValidation({ isValid: true, msg: '' });
+      }
+    },
+    submitRequestForm(e) {
+      e.preventDefault();
+    },
+    ...mapActions({
+      showCheckModal: 'show',
+      setValidation: 'setValidation',
+    }),
   },
 };
 </script>
@@ -91,6 +152,8 @@ export default {
 
   .btn-stage-group {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 100px;
   }
 }

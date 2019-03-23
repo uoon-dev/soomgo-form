@@ -32,25 +32,28 @@ export default {
       if (e.target.checked) {
         this.selectedCheckbox = true;
         this.answer[i] = option.text;
-        this.setAnswer({ id: this.item.itemId, text: this.answer.filter(value => value !== '').join(', ') });
+        this.setAnswer({
+          formType: this.item.formType,
+          id: this.item.itemId,
+          text: this.answer.filter(value => value !== '').join(', '),
+        });
       } else {
         this.selectedCheckbox = false;
         this.answer[i] = '';
-        this.setAnswer({ id: this.item.itemId, text: this.answer.filter(value => value !== '').join(', ') });
+        this.setAnswer({
+          formType: this.item.formType,
+          id: this.item.itemId,
+          text: this.answer.filter(value => value !== '').join(', '),
+        });
       }
-      console.log(this.$store.state);
-      this.addToFavorite();
+
+      // if (this.answer.filter(value => value !== '').length > 0) this.setValidation({ isValid: true });
+      // else this.setValidation({ isValid: false, msg: '한 개 이상 클릭해주세요' });
     },
     ...mapActions({
       setAnswer: 'setAnswer',
-      showCheckModal: 'show',
+      setValidation: 'setValidation',
     }),
-    addToFavorite() {
-      this.showCheckModal({
-        bodyText: 'YOU NEED TO LOGIN RETARD',
-        type: 'error',
-      });
-    },
   },
 };
 </script>

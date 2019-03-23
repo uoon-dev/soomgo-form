@@ -21,6 +21,10 @@ export default {
       selectedValue: '',
     };
   },
+  created() {
+    this.selectedValue = this.item.options[0].text;
+    this.setAnswer({ id: this.item.itemId, text: this.selectedValue });
+  },
   methods: {
     updateSelectedValue(e) {
       this.setAnswer({ id: this.item.itemId, text: e.target.value });
@@ -28,9 +32,6 @@ export default {
     ...mapActions({
       setAnswer: 'setAnswer',
     }),
-  },
-  created() {
-    this.selectedValue = this.item.options[0].text;
   },
 };
 </script>
