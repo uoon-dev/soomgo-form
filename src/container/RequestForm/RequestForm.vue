@@ -2,7 +2,7 @@
   <v-flex class="request-form-container" align-center column>
     <head-title> {{ formItems.title }} </head-title>
     <v-flex>
-      <form class="request-form-wrapper">
+      <form id="myForm" class="request-form-wrapper">
         <v-flex
           v-for="(item, i) in formItems.items"
           v-show="i === tabCount"
@@ -128,6 +128,17 @@ export default {
     },
     submitRequestForm(e) {
       e.preventDefault();
+      const data = {
+        id: this.formItems.formId,
+        items: [],
+      };
+      for (const key in this.answer) {
+        data.items.push({ id: key, answer: this.answer[key] });
+      }
+      this.showCheckModal({
+        bodyText: JSON.stringify(data),
+        type: 'confirm',
+      });
     },
     ...mapActions({
       showCheckModal: 'show',
