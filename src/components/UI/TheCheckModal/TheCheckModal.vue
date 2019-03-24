@@ -73,8 +73,9 @@ export default {
   z-index: 2;
 
   .body-text {
-    white-space: unset;
     padding: 30px;
+    white-space: unset;
+    overflow-y: scroll;
   }
 }
 

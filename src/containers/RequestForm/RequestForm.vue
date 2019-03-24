@@ -40,7 +40,7 @@
               v-show="tabCount === formItems.items.length - 1"
               mint
               width="80px"
-              :click="(e) => submitRequestForm(e)"
+              :click="(e) => submitRequestForm({e, itemId: item.itemId, formType: item.formType})"
             >
               제출
             </custom-button>
@@ -128,19 +128,27 @@ export default {
         this.setValidation({ isValid: true, msg: '' });
       }
     },
-    submitRequestForm(e) {
+    submitRequestForm({ e, itemId, formType }) {
       e.preventDefault();
-      const data = {
-        id: this.formItems.formId,
-        items: [],
-      };
-      for (const key in this.answer) {
-        data.items.push({ id: key, answer: this.answer[key] });
+      this.checkValidation(itemId, formType);
+      if (!this.isValid) {
+        this.showCheckModal({
+          bodyText: this.msg,
+          type: 'error',
+        });
+      } else {
+        const data = {
+          id: this.formItems.formId,
+          items: [],
+        };
+        for (const key in this.answer) {
+          data.items.push({ id: key, answer: this.answer[key] });
+        }
+        this.showCheckModal({
+          bodyText: JSON.stringify(data),
+          type: 'confirm',
+        });
       }
-      this.showCheckModal({
-        bodyText: JSON.stringify(data),
-        type: 'confirm',
-      });
     },
     ...mapActions({
       showCheckModal: 'show',
