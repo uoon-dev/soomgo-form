@@ -1,16 +1,21 @@
 <template>
   <transition name="fade-in">
-    <div v-show="showCheckModal" class="backdrop" />
+    <div v-show="showCheckModal" class="backdrop" @click="hide" />
   </transition>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
     ...mapGetters({
       showCheckModal: 'showCheckModal',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      hide: 'hide',
     }),
   },
 };

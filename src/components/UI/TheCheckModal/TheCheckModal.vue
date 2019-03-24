@@ -7,7 +7,7 @@
       {{ bodyText }}
     </typography>
     <custom-button
-      :steelblue="type === 'confirm' ? true : false"
+      :lightmint="type === 'confirm' ? true : false"
       :lightyellow="type === 'error' ? true : false"
       :click="closeDialog"
       width="60%"
@@ -64,7 +64,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 350px;
+  width: 300px;
   height: 200px;
   padding: 20px;
   background: white;
@@ -75,6 +75,12 @@ export default {
   .body-text {
     white-space: unset;
     padding: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .the-check-modal {
+    width: 350px;
   }
 }
 </style>

@@ -30,7 +30,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    steelblue: {
+    mint: {
       type: Boolean,
       default: false,
     },
@@ -38,7 +38,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    ghostSb: {
+    ghostMt: {
       type: Boolean,
       default: false,
     },
@@ -77,11 +77,11 @@ export default {
     },
     buttonType() {
       const {
-        steelblue, ghost, ghostSb, lightyellow,
+        mint, ghost, ghostMt, lightyellow,
       } = this;
-      if (steelblue) return 'steelblue';
+      if (mint) return 'mint';
       else if (ghost) return 'ghost';
-      else if (ghostSb) return 'ghost-sb';
+      else if (ghostMt) return 'ghost-mt';
       else if (lightyellow) return 'lightyellow';
       else return '';
     },
@@ -104,6 +104,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     padding: 0;
     cursor: pointer;
+    background-color: $white;
   }
 
   .xs {
@@ -150,9 +151,9 @@ export default {
     white-space: nowrap;
   }
 
-  .steelblue {
-    background-color: $steelblue;
-    border-color: $steelblue;
+  .mint {
+    background-color: $mint;
+    border-color: $mint;
     color: white !important;
   }
 
@@ -161,9 +162,9 @@ export default {
     color: $lightgray !important;
   }
 
-  .ghost-sb {
-    border-color: $steelblue;
-    color: $steelblue !important;
+  .ghost-mt {
+    border-color: $mint;
+    color: $mint !important;
   }
 
   .lightyellow {

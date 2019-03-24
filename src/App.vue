@@ -24,7 +24,7 @@ export default {
 html, body {
   all: unset;
   height: 100%;
-  background-color: rgb(240, 235, 248);
+  background-color: #fdfdf8;
 }
 
 .mt-pull-100{

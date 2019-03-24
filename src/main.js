@@ -6,7 +6,6 @@ import uiUtils from './ui-utils';
 
 Vue.use(Vuex);
 
-
 import './assets/scss/margin.scss';
 import './assets/scss/padding.scss';
 

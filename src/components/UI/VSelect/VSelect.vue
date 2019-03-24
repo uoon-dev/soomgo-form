@@ -1,5 +1,5 @@
 <template>
-  <div class="select">
+  <v-flex justify-center class="select">
     <select
       :value="value"
       @change="selectChanged"
@@ -8,7 +8,7 @@
         {{ option.text }}
       </option>
     </select>
-  </div>
+  </v-flex>
 </template>
 
 <script>
@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/color.scss';
+
 /* Reset Select */
 select {
   -webkit-appearance: none;
@@ -41,17 +43,17 @@ select {
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #2c3e50;
+  background: $mint;
   background-image: none;
 }
 /* Custom Select */
 .select {
   position: relative;
   display: block;
-  width: 20em;
+  width: 100%;
   height: 3em;
   line-height: 3;
-  background: #2c3e50;
+  background: $mint;
   overflow: hidden;
   border-radius: .25em;
 }
@@ -75,7 +77,7 @@ select::-ms-expand {
   bottom: 0;
   padding: 0 1em;
   color: #fff;
-  background: #34495e;
+  background: $strongmint;
   pointer-events: none;
 }
 /* Transition */
@@ -86,5 +88,11 @@ select::-ms-expand {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
+}
+
+@media screen and (min-width: 600px) {
+  .select {
+    width: 20em;
+  }
 }
 </style>

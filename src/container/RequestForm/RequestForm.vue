@@ -10,7 +10,7 @@
           :tab="i"
           column
         >
-          <typography xs="sg-heading-3-light" class="ma-1">
+          <typography xs="sg-heading-3-light" class="ma-1 question-title">
             Q. {{ item.title }}
           </typography>
           <request-form-checkbox v-if="item.formType === 1" :item="item" />
@@ -20,6 +20,7 @@
           <v-flex justify-center class="btn-stage-group">
             <custom-button
               v-show="tabCount > 0"
+              ghost-mt
               class="mr-1"
               width="80px"
               :click="(e) => goPrevStage({e, itemId: item.itemId, formType: item.formType})"
@@ -28,7 +29,7 @@
             </custom-button>
             <custom-button
               v-show="tabCount < formItems.items.length - 1"
-              steelblue
+              mint
               width="80px"
               :click="(e) => goNextStage({e, itemId: item.itemId, formType: item.formType})"
             >
@@ -36,7 +37,7 @@
             </custom-button>
             <custom-button
               v-show="tabCount === formItems.items.length - 1"
-              steelblue
+              mint
               width="80px"
               :click="(e) => submitRequestForm(e)"
             >
@@ -150,22 +151,39 @@ export default {
 
 <style lang="scss" scoped>
 .request-form-container {
-  position: relative;
-  width: 540px;
-  min-height: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  padding: 34px 0;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
-  border-top: 7px solid rgb(174, 121, 255);
-  background-color: white;
+    position: relative;
+    width: 300px;
+    min-height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 34px 0;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    border-top: 7px solid #00c7ae;
+    background-color: white;
 
-  .btn-stage-group {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100px;
+    .request-form-wrapper {
+      padding: 0 34px;
+    }
+
+    .question-title {
+      white-space: normal;
+    }
+
+    .btn-stage-group {
+      margin-top: 50px;
+    }
+  }
+
+
+@media screen and (min-width: 600px) {
+  .request-form-container {
+    width: 540px;
+    min-height: 500px;
+
+    .btn-stage-group {
+      margin-top: 100px;
+    }
   }
 }
 </style>
