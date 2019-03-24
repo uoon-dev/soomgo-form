@@ -150,6 +150,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/color.scss';
+
 .request-form-container {
     position: relative;
     width: 300px;
@@ -159,8 +161,8 @@ export default {
     margin-bottom: 50px;
     padding: 34px 0;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
-    border-top: 7px solid #00c7ae;
-    background-color: white;
+    border-top: 7px solid $mint;
+    background-color: $white;
 
     .request-form-wrapper {
       padding: 0 34px;

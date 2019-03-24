@@ -9,7 +9,7 @@
 
 <script>
 import banner from '@/components/Banner/Banner';
-import requestForm from '@/container/RequestForm/RequestForm';
+import requestForm from '@/containers/RequestForm/RequestForm';
 
 export default {
   name: 'App',
