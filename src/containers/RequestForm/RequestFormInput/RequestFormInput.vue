@@ -13,6 +13,7 @@
 import { mapActions } from 'vuex';
 
 export default {
+  name: 'RequestFormInput',
   props: {
     item: {
       type: Object,

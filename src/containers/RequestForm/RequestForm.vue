@@ -13,8 +13,8 @@
           <typography xs="sg-heading-3-light" class="ma-1 question-title">
             Q. {{ item.title }}
           </typography>
-          <request-form-checkbox v-if="item.formType === 1" :item="item" />
-          <request-form-radio v-if="item.formType === 2" :item="item" />
+          <request-form-checkbox v-if="item.formType === 1" :item="item" class="request-form-checkbox" />
+          <request-form-radio v-if="item.formType === 2" :item="item" class="request-form-radio" />
           <request-form-input v-if="item.formType === 3" :item="item" />
           <request-form-select v-if="item.formType === 4" :item="item" />
           <v-flex justify-center class="btn-stage-group">
@@ -32,6 +32,7 @@
               mint
               width="80px"
               :click="(e) => goNextStage({e, itemId: item.itemId, formType: item.formType})"
+              class="btn-next"
             >
               다음
             </custom-button>

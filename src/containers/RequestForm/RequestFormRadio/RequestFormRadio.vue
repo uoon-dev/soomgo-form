@@ -15,6 +15,7 @@
 import { mapActions } from 'vuex';
 
 export default {
+  name: 'RequestFormRadio',
   props: {
     item: {
       type: Object,

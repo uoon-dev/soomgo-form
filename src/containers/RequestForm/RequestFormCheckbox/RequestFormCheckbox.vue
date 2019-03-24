@@ -14,6 +14,7 @@
 import { mapActions } from 'vuex';
 
 export default {
+  name: 'RequestFormCheckBox',
   props: {
     item: {
       type: Object,
